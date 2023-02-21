@@ -1,0 +1,14 @@
+.history {
+  border: 1px solid black;
+  background-color: aquamarine;
+
+  width: 60%;
+}
+
+.historyContainer {
+  border: 1px solid black;
+  background-color: coral;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
