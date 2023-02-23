@@ -2,26 +2,8 @@ import React, { useContext } from "react";
 import { appContext } from "../Parent/Parent";
 
 export default function AddTransaction({ addTransaction }) {
-  const {
-    obj,
-    setObj,
-    detailInpValue,
-    setDetailInpValue,
-    moneyInpValue,
-    setMoneyInpValue,
-    balance,
-    setBalance,
-    income,
-    setIncome,
-    expense,
-    setExpense,
-    detail,
-    setdetail,
-    posAmount,
-    setPosAmount,
-    negAmount,
-    setNegAmount,
-  } = useContext(appContext);
+  const { detailInpValue, setDetailInpValue, moneyInpValue, setMoneyInpValue } =
+    useContext(appContext);
 
   return (
     <>

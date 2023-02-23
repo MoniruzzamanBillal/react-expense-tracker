@@ -2,26 +2,7 @@ import React, { useContext } from "react";
 import { appContext } from "../Parent/Parent";
 
 export default function Balance() {
-  const {
-    obj,
-    setObj,
-    detailInpValue,
-    setDetailInpValue,
-    moneyInpValue,
-    setMoneyInpValue,
-    balance,
-    setBalance,
-    income,
-    setIncome,
-    expense,
-    setExpense,
-    detail,
-    setdetail,
-    posAmount,
-    setPosAmount,
-    negAmount,
-    setNegAmount,
-  } = useContext(appContext);
+  const { balance } = useContext(appContext);
   return (
     <>
       <h4>Your Balance</h4>
