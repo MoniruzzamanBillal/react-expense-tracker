@@ -3,6 +3,12 @@ import { appContext } from "../Parent/Parent";
 
 export default function Balance() {
   const {
+    obj,
+    setObj,
+    detailInpValue,
+    setDetailInpValue,
+    moneyInpValue,
+    setMoneyInpValue,
     balance,
     setBalance,
     income,
@@ -11,8 +17,10 @@ export default function Balance() {
     setExpense,
     detail,
     setdetail,
-    amount,
-    setAmount,
+    posAmount,
+    setPosAmount,
+    negAmount,
+    setNegAmount,
   } = useContext(appContext);
   return (
     <>

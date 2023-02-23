@@ -10,21 +10,47 @@ import AddTransaction from "../AddTransaction/AddTransaction";
 export const appContext = createContext();
 
 export default function Parent() {
+  const [detailInpValue, setDetailInpValue] = useState("");
+  const [moneyInpValue, setMoneyInpValue] = useState();
   const [balance, setBalance] = useState(0);
   const [income, setIncome] = useState(10);
   const [expense, setExpense] = useState(20);
-  const [detail, setdetail] = useState("Initial detail");
-  const [amount, setAmount] = useState(0);
+  const [detail, setdetail] = useState([]);
+  const [amount, setAmount] = useState([]);
+  const [obj, setObj] = useState([]);
+  const [posAmount, setPosAmount] = useState([]);
+  const [negAmount, setNegAmount] = useState([]);
 
   function addTransaction() {
-    console.log(amount);
-    console.log(detail);
+    // console.log(amount);
+    // console.log(detail);
+
+    // for history section
+    let prevObj = [...obj];
+
+    let hisObj = {
+      id: Math.random(),
+      detail: detailInpValue,
+      value: moneyInpValue,
+    };
+
+    prevObj.push(hisObj);
+    setObj(prevObj);
+    console.log(prevObj);
+    setMoneyInpValue();
+    setDetailInpValue("");
   }
 
   return (
     <>
       <appContext.Provider
         value={{
+          obj,
+          setObj,
+          detailInpValue,
+          setDetailInpValue,
+          moneyInpValue,
+          setMoneyInpValue,
           balance,
           setBalance,
           income,
@@ -33,8 +59,10 @@ export default function Parent() {
           setExpense,
           detail,
           setdetail,
-          amount,
-          setAmount,
+          posAmount,
+          setPosAmount,
+          negAmount,
+          setNegAmount,
         }}
       >
         <div className="container">

@@ -3,6 +3,12 @@ import { appContext } from "../Parent/Parent";
 
 export default function History() {
   const {
+    obj,
+    setObj,
+    detailInpValue,
+    setDetailInpValue,
+    moneyInpValue,
+    setMoneyInpValue,
     balance,
     setBalance,
     income,
@@ -11,22 +17,35 @@ export default function History() {
     setExpense,
     detail,
     setdetail,
-    amount,
-    setAmount,
+    posAmount,
+    setPosAmount,
+    negAmount,
+    setNegAmount,
   } = useContext(appContext);
 
   return (
     <>
       <h3>History</h3>
+
       <ul id="list" className="list">
-        {/* <li className="minus">
-          Cash <span>-$400</span>
-          <button className="delete-btn">x</button>
-        </li> */}
-        <li className="minus">
-          {detail} <span>-${amount}</span>
-          <button className="delete-btn">x</button>
-        </li>
+        {obj.map((ele) => {
+          return (
+            <>
+              {ele.value < 0 ? (
+                <li className="minus" key={ele.id}>
+                  {ele.detail}
+                  <span>-${ele.value}</span>
+                  <button className="delete-btn">x</button>{" "}
+                </li>
+              ) : (
+                <li className="plus" key={ele.id}>
+                  {ele.detail} <span>-${ele.value}</span>
+                  <button className="delete-btn">x</button>{" "}
+                </li>
+              )}
+            </>
+          );
+        })}
       </ul>
     </>
   );

@@ -3,6 +3,12 @@ import { appContext } from "../Parent/Parent";
 
 export default function AddTransaction({ addTransaction }) {
   const {
+    obj,
+    setObj,
+    detailInpValue,
+    setDetailInpValue,
+    moneyInpValue,
+    setMoneyInpValue,
     balance,
     setBalance,
     income,
@@ -11,8 +17,10 @@ export default function AddTransaction({ addTransaction }) {
     setExpense,
     detail,
     setdetail,
-    amount,
-    setAmount,
+    posAmount,
+    setPosAmount,
+    negAmount,
+    setNegAmount,
   } = useContext(appContext);
 
   return (
@@ -27,7 +35,7 @@ export default function AddTransaction({ addTransaction }) {
             id="text"
             placeholder="Enter text..."
             onChange={(e) => {
-              setdetail(e.target.value);
+              setDetailInpValue(e.target.value);
               // console.log(e.target.value);
             }}
           />
@@ -47,7 +55,16 @@ export default function AddTransaction({ addTransaction }) {
             placeholder="Enter amount..."
             onChange={(e) => {
               // console.log(e.target.value);
-              setAmount(e.target.value);
+              setMoneyInpValue(e.target.value);
+              // let prevPosArray = [...posAmount];
+              // let prevNegArray = [...negAmount];
+              // if (e.target.value < 0) {
+              //   prevNegArray.push(e.target.value);
+              //   setNegAmount(prevNegArray);
+              // } else {
+              //   prevPosArray.push(e.target.value);
+              //   setPosAmount(prevPosArray);
+              // }
             }}
           />
         </div>
