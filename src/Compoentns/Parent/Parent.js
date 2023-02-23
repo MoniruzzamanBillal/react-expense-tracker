@@ -12,20 +12,15 @@ export const appContext = createContext();
 export default function Parent() {
   const [detailInpValue, setDetailInpValue] = useState("");
   const [moneyInpValue, setMoneyInpValue] = useState();
-  const [balance, setBalance] = useState(0);
-  const [income, setIncome] = useState(10);
-  const [expense, setExpense] = useState(20);
+  const [balance, setBalance] = useState();
+  const [income, setIncome] = useState();
+  const [expense, setExpense] = useState();
   const [detail, setdetail] = useState([]);
-  const [amount, setAmount] = useState([]);
   const [obj, setObj] = useState([]);
   const [posAmount, setPosAmount] = useState([]);
   const [negAmount, setNegAmount] = useState([]);
 
   function addTransaction() {
-    // console.log(amount);
-    // console.log(detail);
-
-    // for history section
     let prevObj = [...obj];
 
     let hisObj = {
@@ -35,10 +30,36 @@ export default function Parent() {
     };
 
     prevObj.push(hisObj);
+
+    // for total income
+    let inco = 0;
+    let inc = prevObj.filter((e) => {
+      if (e.value > 0) {
+        inco += parseInt(e.value);
+      }
+    });
+    setIncome(inco);
+
+    // for total expense
+    let expo = 0;
+    let exp = prevObj.filter((e) => {
+      if (e.value < 0) {
+        expo += parseInt(e.value);
+      }
+    });
+    setExpense(expo * -1);
+
+    // for balance
+    let bal = inco + expo;
+    setBalance(bal);
+
     setObj(prevObj);
-    console.log(prevObj);
-    setMoneyInpValue();
     setDetailInpValue("");
+    setMoneyInpValue("");
+
+    // console.log(prevObj);
+    // console.log(`income = ${inco}`);
+    // console.log(`expense = ${expo}`);
   }
 
   return (

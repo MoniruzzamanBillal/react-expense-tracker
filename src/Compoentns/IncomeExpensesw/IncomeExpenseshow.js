@@ -28,16 +28,12 @@ export default function IncomeExpenseshow() {
       <div className="inc-exp-container">
         <div>
           <h4>Income</h4>
-          {/* <p  className="money plus">
-            +$0.00
-          </p> */}
+
           <p className="money plus">+${income}</p>
         </div>
         <div>
           <h4>Expense</h4>
-          {/* <p id="money-minus" className="money minus">
-            -$0.00
-          </p> */}
+
           <p id="money-minus" className="money minus">
             -${expense}
           </p>

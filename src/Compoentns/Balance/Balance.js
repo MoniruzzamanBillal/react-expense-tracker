@@ -25,8 +25,12 @@ export default function Balance() {
   return (
     <>
       <h4>Your Balance</h4>
-      {/* <h1 id="balance">$0.00</h1> */}
-      <h1 id="balance">${balance}</h1>
+
+      {balance < 0 ? (
+        <h1 id="balance">-${balance * -1}</h1>
+      ) : (
+        <h1 id="balance">${balance}</h1>
+      )}
     </>
   );
 }

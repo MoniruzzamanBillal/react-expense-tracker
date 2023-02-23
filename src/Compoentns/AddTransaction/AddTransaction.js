@@ -34,6 +34,7 @@ export default function AddTransaction({ addTransaction }) {
             type="text"
             id="text"
             placeholder="Enter text..."
+            value={detailInpValue}
             onChange={(e) => {
               setDetailInpValue(e.target.value);
               // console.log(e.target.value);
@@ -53,18 +54,9 @@ export default function AddTransaction({ addTransaction }) {
             type="number"
             id="amount"
             placeholder="Enter amount..."
+            value={moneyInpValue}
             onChange={(e) => {
-              // console.log(e.target.value);
               setMoneyInpValue(e.target.value);
-              // let prevPosArray = [...posAmount];
-              // let prevNegArray = [...negAmount];
-              // if (e.target.value < 0) {
-              //   prevNegArray.push(e.target.value);
-              //   setNegAmount(prevNegArray);
-              // } else {
-              //   prevPosArray.push(e.target.value);
-              //   setPosAmount(prevPosArray);
-              // }
             }}
           />
         </div>
